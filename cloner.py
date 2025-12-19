@@ -14,7 +14,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
 from bs4 import BeautifulSoup
 
-# ---- Library Checks ----
+# library checks 
 try:
     from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 except ImportError:
@@ -27,14 +27,14 @@ except ImportError:
     print("ERROR: PyQt6 not found. Run: pip install PyQt6")
     sys.exit(1)
 
-# Optional Stealth Module
+# optional stealth module
 try:
     from playwright_stealth import stealth_sync
     HAS_STEALTH = True
 except ImportError:
     HAS_STEALTH = False
 
-# ---- Configuration Class ----
+# configuration class 
 class AppConfig:
     MAX_WORKERS = 24
     DOWNLOAD_TIMEOUT = 30
@@ -42,7 +42,7 @@ class AppConfig:
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
     LAZY_ATTRS = ["data-src", "data-srcset", "data-original", "data-url"]
 
-# ---- Utilities ----
+# utilities 
 def safe_filename_from_url(url):
     parsed = urlparse(url)
     path = parsed.path or ""
@@ -75,7 +75,7 @@ def normalize_key(u):
     except Exception:
         return u.split("?")[0].split("#")[0].rstrip("/")
 
-# ---- Network Layer (Asset Downloader) ----
+# network layer (asset downloader) 
 class AssetDownloader:
     def __init__(self, output_folder, logger=None):
         self.output_folder = output_folder
@@ -159,7 +159,7 @@ class AssetDownloader:
                     results[url] = None
         return results
 
-# ---- Logic Layer (Cloner Engine) ----
+# logic layer (cloner engine) 
 class ClonerEngine(QtCore.QObject):
     log_signal = QtCore.pyqtSignal(str)
     progress_signal = QtCore.pyqtSignal(int)
@@ -234,7 +234,7 @@ class ClonerEngine(QtCore.QObject):
                     viewport={"width": 1920, "height": 1080}
                 )
                 
-                # Cookies
+                # cookies
                 cookie_file = os.path.join(output_folder, "cookies.json")
                 if os.path.exists(cookie_file):
                     try:
@@ -338,7 +338,7 @@ class ClonerEngine(QtCore.QObject):
             self.log(f"!! CRITICAL_FAILURE: {e}")
             self.finished_signal.emit(False, str(e))
 
-# ---- Presentation Layer ----
+# presentation layer 
 class PreviewServer(threading.Thread):
     def __init__(self, folder, port=8000, logger=None):
         super().__init__(daemon=True)
@@ -358,7 +358,7 @@ class PreviewServer(threading.Thread):
     def stop(self):
         if self.httpd: self.httpd.shutdown()
 
-# ---- GUI Layer (Nothing Style) ----
+# GUI layer 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -378,7 +378,7 @@ class MainWindow(QtWidgets.QMainWindow):
         main_layout.setContentsMargins(40, 40, 40, 40)
         main_layout.setSpacing(0)
 
-        # 1. Header
+        # 1. header
         header = QtWidgets.QLabel("CLONER // VER 4.0")
         header.setObjectName("header")
         main_layout.addWidget(header)
@@ -389,7 +389,7 @@ class MainWindow(QtWidgets.QMainWindow):
         main_layout.addWidget(sep)
         main_layout.addSpacing(30)
 
-        # 2. Input Matrix
+        # 2. input matrix
         form_layout = QtWidgets.QVBoxLayout()
         form_layout.setSpacing(20)
 
@@ -400,7 +400,7 @@ class MainWindow(QtWidgets.QMainWindow):
         form_layout.addWidget(lbl_url)
         form_layout.addWidget(self.txt_url)
 
-        # Folder
+        # folder
         lbl_folder = QtWidgets.QLabel("( DESTINATION )")
         folder_box = QtWidgets.QHBoxLayout()
         folder_box.setSpacing(-1)
@@ -418,7 +418,7 @@ class MainWindow(QtWidgets.QMainWindow):
         form_layout.addWidget(lbl_folder)
         form_layout.addLayout(folder_box)
 
-        # Options
+        # options
         self.chk_headless = QtWidgets.QCheckBox("BACKGROUND_MODE")
         self.chk_headless.setChecked(True)
         form_layout.addWidget(self.chk_headless)
@@ -426,7 +426,7 @@ class MainWindow(QtWidgets.QMainWindow):
         main_layout.addLayout(form_layout)
         main_layout.addSpacing(40)
 
-        # 3. Controls
+        # 3. controls
         btn_layout = QtWidgets.QHBoxLayout()
         btn_layout.setSpacing(15)
 
@@ -451,7 +451,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         main_layout.addSpacing(30)
 
-        # 4. Feedback
+        # 4. feedback
         self.progress = QtWidgets.QProgressBar()
         self.progress.setTextVisible(False)
         self.progress.setFixedHeight(4)
@@ -464,7 +464,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.txt_log.setPlainText("SYSTEM_READY...")
         main_layout.addWidget(self.txt_log)
 
-        # 5. FOOTER (Modified)
+        # 5. FOOTER 
         main_layout.addSpacing(20)
         
         sep2 = QtWidgets.QFrame()
@@ -475,7 +475,7 @@ class MainWindow(QtWidgets.QMainWindow):
         
         footer_layout = QtWidgets.QHBoxLayout()
         
-        # Developer Label with HTML styling for colors and links
+        
         lbl_dev = QtWidgets.QLabel()
         lbl_dev.setObjectName("footer_text")
         lbl_dev.setOpenExternalLinks(True)
@@ -484,7 +484,7 @@ class MainWindow(QtWidgets.QMainWindow):
             '// <a href="https://github.com/KiarashAkbari" style="color: #D71921; text-decoration: none; font-weight: bold;">GitHub</a>'
         )
         
-        # Info Label (White by CSS)
+        # info label
         lbl_info = QtWidgets.QLabel("VER: 4.1 // [ EDUCATIONAL_USE_ONLY ]")
         lbl_info.setObjectName("footer_text")
         lbl_info.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight)
@@ -495,13 +495,13 @@ class MainWindow(QtWidgets.QMainWindow):
         
         main_layout.addLayout(footer_layout)
 
-        # Connect
+        # connect
         self.btn_start.clicked.connect(self.start_process)
         self.btn_stop.clicked.connect(self.stop_process)
         self.btn_preview.clicked.connect(self.open_preview)
 
     def apply_nothing_theme(self):
-        # Nothing OS Style: Black, White, Red, Dotted lines, Monospace
+        
         self.setStyleSheet("""
             QMainWindow, QWidget {
                 background-color: #000000;
