@@ -5,8 +5,11 @@
 ![PyQt6](https://img.shields.io/badge/UI_MATRIX-PYQT6-000000?style=for-the-badge&logo=qt&logoColor=white)
 
 SYSTEM_STATUS:   OPERATIONAL
+
 RENDER_ENGINE:   CHROMIUM_HEADLESS
+
 STEALTH_MODE:    ACTIVE (EVASION_LEVEL_3)
+
 OUTPUT_TYPE:     STATIC_HTML + ASSETS
 
 ---
