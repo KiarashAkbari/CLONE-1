@@ -1,3 +1,5 @@
+---
+
 ```markdown
 # // CLONE(1)_ARCHIVER_V4
 
@@ -11,6 +13,7 @@ STEALTH_MODE:    ACTIVE (EVASION_LEVEL_3)
 OUTPUT_TYPE:     STATIC_HTML + ASSETS
 
 
+
 ```
 
 ---
@@ -19,7 +22,7 @@ OUTPUT_TYPE:     STATIC_HTML + ASSETS
 
 **CLONE(1)** is a high-precision, industrial-grade web archiving tool engineered to replicate modern, dynamic websites locally.
 
-Unlike standard `wget` or `curl` requests, this system utilizes a **Headless Browser Engine** to execute JavaScript, render the DOM, and trigger lazy-loading events before capture. It features a custom "Nothing OS" styled GUI and integrates stealth modules to bypass anti-bot defenses.
+Unlike standard `wget` or `curl` requests, this system utilizes a **Headless Browser Engine** to execute JavaScript, render the DOM, and trigger lazy-loading events before capture. It features a custom GUI and integrates stealth modules to bypass anti-bot defenses.
 
 ### [ CORE_CAPABILITIES ]
 
@@ -61,6 +64,7 @@ The system executes a strictly defined extraction sequence:
 [ FINAL_OUTPUT ]
 (index.html + Local Asset Folder)
 
+
 ```
 
 ---
@@ -72,6 +76,7 @@ The system executes a strictly defined extraction sequence:
 ```bash
 git clone https://github.com/KiarashAkbari/Clone-1.git
 cd Clone-1
+
 
 ```
 
@@ -86,12 +91,14 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 playwright install
 
+
 ```
 
 ### 3. INITIATE_SYSTEM
 
 ```bash
 python cloner.py
+
 
 ```
 
@@ -100,6 +107,8 @@ python cloner.py
 ## // 04_OPERATIONAL_MANUAL
 
 The interface uses a brutalist, high-contrast design optimized for clarity.
+
+![UI_PREVIEW](screenshot.png)
 
 ### [ CONTROL_MATRIX ]
 
@@ -141,6 +150,7 @@ The interface uses a brutalist, high-contrast design optimized for clarity.
 │
 └── README.md                # System Documentation
 
+
 ```
 
 ---
@@ -165,6 +175,7 @@ DEVELOPER:    KIARASH AKBARI
 PROJECT:      CLONE(1) // WEB_ARCHIVER
 SOURCE:       [github.com/KiarashAkbari](https://github.com/KiarashAkbari)
 
+
 ```
 
 ---
@@ -174,6 +185,7 @@ SOURCE:       [github.com/KiarashAkbari](https://github.com/KiarashAkbari)
 ```text
 >> WARNING: EDUCATIONAL_USE_ONLY
 >> COMPLIANCE_CHECK: REQUIRED
+
 
 ```
 
