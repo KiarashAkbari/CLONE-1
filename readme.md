@@ -1,5 +1,3 @@
-
-```markdown
 # // CLONE(1)_ARCHIVER_V4
 
 ![Python](https://img.shields.io/badge/CORE-PYTHON_3.9+-000000?style=for-the-badge&logo=python&logoColor=white)
@@ -10,10 +8,6 @@ SYSTEM_STATUS:   OPERATIONAL
 RENDER_ENGINE:   CHROMIUM_HEADLESS
 STEALTH_MODE:    ACTIVE (EVASION_LEVEL_3)
 OUTPUT_TYPE:     STATIC_HTML + ASSETS
-
-
-
-```
 
 ---
 
