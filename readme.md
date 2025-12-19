@@ -1,12 +1,10 @@
 ```markdown
 # CLONE(1) // WEB_ARCHIVER
 
-![Python](https://img.shields.io/badge/SYSTEM-PYTHON_3.9+-000000?style=for-the-badge&logo=python&logoColor=white)
-![Playwright](https://img.shields.io/badge/CORE-PLAYWRIGHT-000000?style=for-the-badge&logo=playwright&logoColor=D71921)
-![PyQt6](https://img.shields.io/badge/UI-PYQT6-000000?style=for-the-badge&logo=qt&logoColor=white)
+![Python](https://img.shields.io/badge/SYSTEM-PYTHON_3.9+-000000?style=for-the-badge&logo=python&logoColor=white) ![Playwright](https://img.shields.io/badge/CORE-PLAYWRIGHT-000000?style=for-the-badge&logo=playwright&logoColor=D71921) ![PyQt6](https://img.shields.io/badge/UI-PYQT6-000000?style=for-the-badge&logo=qt&logoColor=white)
 
-> **STATUS:** [ OPERATIONAL ]  
-> **DESIGN:** [ NOTHING_OS / INDUSTRIAL ]  
+> **STATUS:** [ OPERATIONAL ]
+> **DESIGN:** [ NOTHING_OS / INDUSTRIAL ]
 > **MODE:** [ STEALTH_ACTIVE ]
 
 ---
@@ -15,20 +13,23 @@
 
 **CLONE(1)** is an industrial-grade web archiving tool engineered for precision and stealth. Built on the **Playwright** engine with a custom brutalist interface, it performs deep cloning of target websites, capturing dynamic assets, lazy-loaded images, and computed CSS that standard scrapers miss.
 
-![UI Screenshot](https://via.placeholder.com/800x450/000000/FFFFFF?text=INSERT+YOUR+UI+SCREENSHOT+HERE)
-*(Replace the link above with a screenshot of your app later)*
+*(Place a screenshot of your app here if you have one)*
 
 ---
 
 ## [ CORE_MODULES ]
 
-* **`[ DEEP_ARCHIVAL ]`** Recursively downloads HTML, CSS, JS, Fonts, and Media. Rewrites DOM paths for fully offline compatibility.
+* **`[ DEEP_ARCHIVAL ]`**
+    Recursively downloads HTML, CSS, JS, Fonts, and Media. Rewrites DOM paths for fully offline compatibility.
 
-* **`[ GHOST_PROTOCOL ]`** Integrated `playwright-stealth` module to evade bot detection systems and WAFs.
+* **`[ GHOST_PROTOCOL ]`**
+    Integrated `playwright-stealth` module to evade bot detection systems and WAFs.
 
-* **`[ INDUSTRIAL_UI ]`** A custom "Nothing OS" styled GUI featuring monospaced typography and dotted-grid layouts.
+* **`[ INDUSTRIAL_UI ]`**
+    A custom "Nothing OS" styled GUI featuring monospaced typography and dotted-grid layouts.
 
-* **`[ LOCAL_PREVIEW ]`** Instant threading server to verify cloned assets immediately after extraction.
+* **`[ LOCAL_PREVIEW ]`**
+    Instant threading server to verify cloned assets immediately after extraction.
 
 ---
 
@@ -66,21 +67,20 @@ playwright install
 
 ## [ OPERATIONAL_GUIDE ]
 
-### 1. LAUNCH_SYSTEM
-
+1. **LAUNCH_SYSTEM**
 ```bash
 python cloner.py
 
 ```
 
-### 2. CONFIGURE_PARAMETERS
 
+2. **CONFIGURE_PARAMETERS**
 * **TARGET:** Enter the full URL (e.g., `https://example.com`).
 * **DESTINATION:** Select your local output folder.
-* **BACKGROUND_MODE:** Keep checked for headless (invisible) operation. Uncheck to watch the bot work.
+* **BACKGROUND_MODE:** Keep checked for headless operation.
 
-### 3. EXECUTE
 
+3. **EXECUTE**
 Click **[ INITIATE ]** to begin the archival process.
 
 ---
@@ -101,9 +101,19 @@ This tool is designed for educational purposes and legitimate archiving (e.g., s
 
 ---
 
-<div align="center">
+<p align="center">
+<a href="https://github.com/KiarashAkbari">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/DEV-KIARASH_AKBARI-D71921%3Fstyle%3Dfor-the-badge%26logo%3Dgithub%26logoColor%3Dwhite" alt="Developer">
+</a>
 
-</div>
+
+
+
+
+<a href="https://github.com/KiarashAkbari">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/SOURCE-GITHUB_REPO-000000%3Fstyle%3Dfor-the-badge%26logo%3Dgit%26logoColor%3Dwhite" alt="Source">
+</a>
+</p>
 
 ```
 
