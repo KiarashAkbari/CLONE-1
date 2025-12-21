@@ -167,7 +167,7 @@ Standard scrapers are easily blocked by WAFs (Web Application Firewalls). **CLON
 ## // 07_ENGINEER_INFO
 
 ```text
-DEVELOPER:    KIARASH AKBARI
+DEVELOPERS:    KIARASH AKBARI && Mohammad Raisi
 PROJECT:      CLONE(1) // WEB_ARCHIVER
 SOURCE:       [github.com/KiarashAkbari](https://github.com/KiarashAkbari)
 
