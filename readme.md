@@ -1,65 +1,66 @@
-# // CLONE(1)_ARCHIVER_V4
+# // CLONE(1)_ARCHIVER
 
 ![Python](https://img.shields.io/badge/CORE-PYTHON_3.9+-000000?style=for-the-badge&logo=python&logoColor=white)
-![Playwright](https://img.shields.io/badge/ENGINE-PLAYWRIGHT-D71921?style=for-the-badge&logo=googlechrome&logoColor=white)
+![Playwright](https://img.shields.io/badge/ENGINE-HYBRID_SYNC_ASYNC-D71921?style=for-the-badge&logo=googlechrome&logoColor=white)
 ![PyQt6](https://img.shields.io/badge/UI_MATRIX-PYQT6-000000?style=for-the-badge&logo=qt&logoColor=white)
+![SQLite](https://img.shields.io/badge/DB-SQLITE3_PERSISTENCE-000000?style=for-the-badge&logo=sqlite&logoColor=white)
 
 SYSTEM_STATUS:   OPERATIONAL
 
-RENDER_ENGINE:   CHROMIUM_HEADLESS
+RENDER_ENGINE:   CHROMIUM_HEADLESS (HYBRID)
 
-STEALTH_MODE:    ACTIVE (EVASION_LEVEL_3)
+STEALTH_MODE:    ACTIVE (EVASION_LEVEL_4)
 
-OUTPUT_TYPE:     STATIC_HTML + ASSETS
+OUTPUT_TYPE:     RECURSIVE_SITE_MIRROR + 3D_ASSETS
 
 ---
 
 ## // 01_SYSTEM_OVERVIEW
 
-**CLONE(1)** is a high-precision, industrial-grade web archiving tool engineered to replicate modern, dynamic websites locally.
+**CLONE(1)** is a definitive, industrial-grade web reconnaissance and archiving tool. It has evolved from a single-page cloner into a **Recursive Crawler** capable of replicating entire domain structures.
 
-Unlike standard `wget` or `curl` requests, this system utilizes a **Headless Browser Engine** to execute JavaScript, render the DOM, and trigger lazy-loading events before capture. It features a custom GUI and integrates stealth modules to bypass anti-bot defenses.
+It utilizes a novel **Hybrid Architecture**:
+1.  **Synchronous Browser Core:** For precise, human-like interaction (clicking tabs, expanding menus, triggering lazy loads).
+2.  **Asynchronous Download Engine:** For high-velocity, non-blocking asset acquisition using `aiohttp` and `asyncio`.
 
 ### [ CORE_CAPABILITIES ]
 
-> **DEEP ARCHIVAL:** Recursively captures HTML, CSS, Fonts, JS, and Media.
-> **DOM RECONSTRUCTION:** Rewrites internal paths for 100% offline compatibility.
-> **GHOST PROTOCOL:** Uses `playwright-stealth` to mask automation footprints.
-> **LOCAL PREVIEW:** Instant verification via threaded HTTP server.
+> **RECURSIVE CRAWLING:** Automatically discovers and archives internal links to mirror the full site structure.
+> **DEEP INTERACTION:** Actively clicks `[role="tab"]`, `.load-more`, and triggers scroll events to expose hidden DOM elements.
+> **3D ASSET INTERCEPTION:** Embedded engine captures WebGL buffers, textures, `.glb`, and `.gltf` models directly from the GPU stream.
+> **STATE PERSISTENCE:** Uses SQLite (`clone_cache.db`) to track progress, allowing pause/resume functionality without re-downloads.
+> **ZERO-RAM STREAMING:** Writes data chunks directly to disk, enabling massive archives (50GB+) on low-memory systems.
 
 ---
 
 ## // 02_ARCHITECTURE_PIPELINE
 
-The system executes a strictly defined extraction sequence:
+The system executes a dual-phase extraction sequence:
 
 ```text
-[ TARGET_URL ] (HTTPS)
+[ TARGET_URL ]
        |
        v
-[ BROWSER_INJECTION ]
-(Playwright Chromium + Stealth Scripts)
+[ PHASE_1: SYNCHRONOUS_HARVEST ]
+(Playwright Sync Thread)
+   |-- Human Simulation (Scroll/Click/Expand)
+   |-- WebGL Interception
+   |-- DOM Serialization
        |
        v
-[ INTERACTION_PHASE ]
-(Auto-Scroll / Lazy-Load Triggering / DOM Expansion)
+[ SQLITE_STATE_MANAGER ]
+(Deduplication & Queue Management)
        |
        v
-[ ASSET_PARSING ]
-(BeautifulSoup4: Map CSS/JS/IMG Links)
-       |
-       v
-[ DOWNLOAD_THREADING ]
-(ThreadPoolExecutor: Parallel Asset Acquisition)
-       |
-       v
-[ DOM_REWRITE ]
-(Path Normalization -> ./assets/...)
+[ PHASE_2: ASYNCHRONOUS_ENGINE ]
+(AsyncIO Event Loop)
+   |-- Asset Analysis (CSS/GLTF Recursion)
+   |-- High-Concurrency Downloading (64 Threads)
+   |-- Path Rewriting (Local Linking)
        |
        v
 [ FINAL_OUTPUT ]
-(index.html + Local Asset Folder)
-
+(Structured Directories + Offline Site)
 
 ```
 
@@ -70,31 +71,30 @@ The system executes a strictly defined extraction sequence:
 ### 1. CLONE_REPOSITORY
 
 ```bash
-git clone https://github.com/KiarashAkbari/Clone-1.git
+git clone [https://github.com/KiarashAkbari/Clone-1.git](https://github.com/KiarashAkbari/Clone-1.git)
 cd Clone-1
-
 
 ```
 
 ### 2. INJECT_DEPENDENCIES
 
 ```bash
-# Initialize Virtual Environment (Optional but Recommended)
+# Initialize Virtual Environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install Core Modules
 pip install -r requirements.txt
-playwright install
-
+playwright install chromium
 
 ```
+
+*Required Libraries:* `playwright`, `PyQt6`, `aiohttp`, `aiofiles`, `beautifulsoup4`, `playwright-stealth`.
 
 ### 3. INITIATE_SYSTEM
 
 ```bash
 python cloner.py
-
 
 ```
 
@@ -102,29 +102,26 @@ python cloner.py
 
 ## // 04_OPERATIONAL_MANUAL
 
-The interface uses a brutalist, high-contrast design optimized for clarity.
-
-![UI_PREVIEW](screenshot.png)
+The interface maintains the signature brutalist, high-contrast design.
 
 ### [ CONTROL_MATRIX ]
 
 **1. TARGET_INPUT**
 
-* Enter the full HTTPS URL. The system validates connectivity before initiation.
+* Enter the entry point URL. The crawler will respect the domain boundary.
 
 **2. DESTINATION_NODE**
 
-* Select the root folder. The system will create an isolated `assets` directory inside.
+* Select the root output folder. Directories will be created automatically based on the URL path structure.
 
-**3. BACKGROUND_MODE (Toggle)**
+**3. BACKGROUND_MODE**
 
-* **[ON]:** Runs completely invisible (Headless). Faster.
-* **[OFF]:** Opens a visible browser window. Useful for debugging interaction scripts.
+* **[ON]:** Maximum performance.
+* **[OFF]:** Watch the browser interact with the page (useful for verifying tab clicks).
 
-**4. VISUAL_FEEDBACK**
+**4. 3D_CAPTURE_MODE**
 
-* **LOGS:** Real-time terminal output of asset acquisition status.
-* **PROGRESS:** Linear bar indicating batch download completion.
+* Enables the embedded WebGL interception engine. Captures canvas snapshots and raw 3D model files.
 
 ---
 
@@ -132,20 +129,22 @@ The interface uses a brutalist, high-contrast design optimized for clarity.
 
 ```text
 /ROOT
-├── cloner.py                # [KERNEL] Main Logic & GUI
+├── cloner.py                # [KERNEL] Hybrid Async/Sync Engine
 ├── requirements.txt         # Dependency Manifest
-├── .gitignore               # Exclusion Rules
+├── github_icon.png          # UI Assets
 │
 ├── [OUTPUT_FOLDER]/         # Generates upon execution
-│   ├── index.html           # Reconstructed Entry Point
-│   ├── cookies.json         # Session Data (If captured)
-│   └── assets/              # [ASSET_VAULT]
-│       ├── style_x89a.css
-│       ├── script_b21.js
-│       └── image_001.png
+│   ├── clone_cache.db       # [SQLITE] State Persistence File
+│   ├── cookies.json         # Session Data
+│   │
+│   ├── assets/              # [GLOBAL_ASSETS] (CSS/JS/Fonts)
+│   ├── assets_3d/           # [3D_VAULT] (Models/Textures)
+│   │
+│   ├── index.html           # Home Page
+│   └── about/               # [RECURSIVE_STRUCTURE]
+│       └── index.html       # Mirrored Internal Pages
 │
 └── README.md                # System Documentation
-
 
 ```
 
@@ -153,24 +152,23 @@ The interface uses a brutalist, high-contrast design optimized for clarity.
 
 ## // 06_STEALTH_MECHANICS
 
-Standard scrapers are easily blocked by WAFs (Web Application Firewalls). **CLONE(1)** implements the following evasion techniques:
+**CLONE(1)** employs advanced evasion to bypass WAFs during deep crawls:
 
 | VECTOR | COUNTERMEASURE |
 | --- | --- |
-| **User-Agent** | Injects legitimate Windows 10 / Chrome headers. |
-| **WebDriver** | Masks the `navigator.webdriver` property. |
-| **Fingerprint** | Randomizes canvas readout noise. |
-| **Behavior** | Simulates human scroll velocity and pauses. |
+| **Async Politeness** | Download workers use smart throttling to avoid IP bans. |
+| **Hybrid Interaction** | Browser actions are synchronous and randomized, mimicking real user latency. |
+| **Navigator Masking** | Overrides `webdriver` flags and injects consistent platform headers. |
 
 ---
 
 ## // 07_ENGINEER_INFO
 
 ```text
-DEVELOPERS:    KIARASH AKBARI && Mohammad Raisi
-PROJECT:      CLONE(1) // WEB_ARCHIVER
-SOURCE:       [github.com/KiarashAkbari](https://github.com/KiarashAkbari)
-
+LEAD_ENGINEER:    KIARASH AKBARI
+PROJECT:          CLONE(1) // WEB_ARCHIVER_V16
+CONCEPT:          WITH THE HELP OF MY FRIEND MOHAMMAD RAISI
+SOURCE:           [github.com/KiarashAkbari](https://github.com/KiarashAkbari)
 
 ```
 
@@ -179,17 +177,23 @@ SOURCE:       [github.com/KiarashAkbari](https://github.com/KiarashAkbari)
 ## // 08_LEGAL_DISCLAIMER
 
 ```text
->> WARNING: EDUCATIONAL_USE_ONLY
->> COMPLIANCE_CHECK: REQUIRED
-
+>> CLASSIFICATION: RESTRICTED_TOOL
+>> USAGE_PROTOCOL: EDUCATIONAL_RESEARCH_ONLY
+>> LIABILITY_STATUS: NULL_AND_VOID
 
 ```
 
-The developer assumes no liability for the misuse of this tool. Users must strictly adhere to:
+**[ NOTICE_OF_NON_LIABILITY ]**
 
-1. **Robots.txt** policies of target domains.
-2. **Copyright Laws** regarding intellectual property.
-3. **Terms of Service** of the target infrastructure.
+The usage of **CLONE(1)** constitutes an agreement that the user assumes all risks associated with its operation.
+
+1. **NO WARRANTIES:** This software is provided "as is," without warranty of any kind, express or implied.
+2. **TARGET_COMPLIANCE:** Users are solely responsible for ensuring their actions comply with the **Terms of Service**, **Robots.txt**, and **Privacy Policies** of any target URL.
+3. **DATA_SOVEREIGNTY:** The developer disclaims all responsibility for intellectual property violations, server strain, or data misuse resulting from the deployment of this tool.
+
+**[ ETHICAL_DIRECTIVE ]**
+
+> Do not deploy against government infrastructure, financial institutions, or non-consenting private networks.
 
 *System Halt.*
 
