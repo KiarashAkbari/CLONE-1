@@ -104,6 +104,8 @@ python cloner.py
 
 The interface maintains the signature brutalist, high-contrast design.
 
+![UI_PREVIEW](screenshot.png)
+
 ### [ CONTROL_MATRIX ]
 
 **1. TARGET_INPUT**
