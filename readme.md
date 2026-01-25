@@ -123,7 +123,7 @@ The interface maintains the signature brutalist, high-contrast design.
 
 **4. 3D_CAPTURE_MODE**
 
-* Enables the embedded WebGL interception engine. Captures canvas snapshots and raw 3D model files.
+* Enables the embedded WebGL interception engine.Captures canvas snapshots and raw 3D model files.
 
 ---
 
